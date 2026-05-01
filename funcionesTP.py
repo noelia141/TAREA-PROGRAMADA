@@ -37,3 +37,25 @@ def cargarTokens(nombreArchivo, separador):
         return "Error: No existe el archivo."
     except Exception: #Esto captura cualquier otro error que no sea la falta del archivo.
         return "Error en la lectura de datos."
+    
+#Agregar y modificar tokens
+def modificarTokens(listaTokens):
+    """
+    Permite al usuario ingresar una palabra y su traducción.
+    Si la palabra ya existe, actualiza el valor, si no, la agrega.
+    """
+    palabraOriginal = input("Ingrese la palabra original (ej. 'def'): ")
+    palabraTraducida = input("Ingrese el nuevo token (ej. 'definir'): ")
+    existe = False
+    indice = 0
+    while indice < len(listaTokens): #Se crea un ciclo para recorrer la lista de tuplas.
+        if listaTokens[indice][0] == palabraOriginal:
+            listaTokens[indice] = (palabraOriginal, palabraTraducida) #Si se encuentra, se reemplaza la tupla vieja por una nueva con el valor actualizado
+            print("Se actualizó el token para", palabraOriginal)
+            existe = True
+            break #El break detiene el ciclo y evita que se ejecute el bloque else.
+        indice += 1
+    else: #Solo se ejecuta si el ciclo while termina sin encontrar la palabra
+        listaTokens.append((palabraOriginal, palabraTraducida))
+        print("Token agregado correctamente.")
+    return listaTokens
