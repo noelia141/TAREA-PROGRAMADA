@@ -1,3 +1,0 @@
-hola;hello
-mundo;world
-tarea;homework

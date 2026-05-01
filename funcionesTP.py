@@ -1,4 +1,4 @@
-#Carga de tokens
+#Función para  carga de tokens
 def cargarTokens(nombreArchivo, separador):
     """
     Lee el archivo de tokens línea por línea.
